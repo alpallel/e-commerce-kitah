@@ -2,13 +2,17 @@
 import { useCart } from "./context/CartContext.jsx";
 import { useSelection } from "./context/SelectionContext.jsx";
 
-function Product({ product, visible }) {
+function Product({ product, visible, onDelete }) {
   const { addToCart } = useCart();
   const { isSelected, toggleSelected } = useSelection();
 
   const handleAddToCart = () => {
     addToCart(product);
     alert(`${product.name} added to cart!`);
+  };
+
+  const handleDelete = () => {
+    onDelete(product.id);
   };
 
   const handleSelectToggle = (e) => {
@@ -64,14 +68,22 @@ function Product({ product, visible }) {
         <div className="ml-4 mt-2 flex-1">
           <h3 className="font-semibold">{product.name}</h3>
           <p className="font-light text-xs">{product.desc}</p>
-          <h4 className="self-end mr-3 mt-2">{product.price}K</h4>
+          <h4 className="self-end mr-3 mt-2">Rp.{product.price}</h4>
         </div>
-        <button
-          onClick={handleAddToCart}
-          className="mx-3 mb-3 bg-amber-500 text-white py-2 rounded-lg hover:bg-amber-600 transition-colors font-medium"
-        >
-          Add to Cart
-        </button>
+        <div className="flex justify-between mx-3 mb-3">
+          <button
+            onClick={handleAddToCart}
+            className="bg-amber-500 text-white py-2 px-4 rounded-lg hover:bg-amber-600 transition-colors font-medium"
+          >
+            Add to Cart
+          </button>
+          <button
+            onClick={handleDelete}
+            className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors font-medium"
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

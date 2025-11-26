@@ -3,13 +3,11 @@ function Footer() {
     <>
       <div className="h-[50vh] w-full bg-sky-900 text-white px-15 py-12">
         <div class='moreAbout'>
-            <h3 className="font-bold mb-2">More About Tokopetei</h3>
-            <h4>Who we are</h4>
-            <h4>What we do</h4>
-            <h4>Our values</h4>
-            <h4>Leadership</h4>
-            <h4>Our major projects</h4>
-            <h4>The Tokopetei brand</h4>
+            <h3 className="font-bold mb-2">Made by Skilled Developers:</h3>
+            <h4>Alfarrel (asked so much stuff to AI until it ran out of monthly tokens)</h4>
+            <h4>Farrel (probably uses AI too)</h4>
+            <h4>Gaathfan (I dont even know what he did)</h4>
+            <h4>Umar (can't use git)</h4>
         </div>
       </div>
     </>
