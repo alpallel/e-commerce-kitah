@@ -36,7 +36,7 @@ function ProductList() {
   const fetchItems = useCallback(async () => {
     setLoading(true);
     setError(null);
-    const url = "http://127.0.0.1:8000/api/products/";
+    const url = "http://127.0.0.1:8000/";
 
     try {
       const response = await fetch(url);

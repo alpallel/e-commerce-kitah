@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext.jsx";
-import { useNavigate } from "react-router-dom";
+import { useAsyncError, useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -13,7 +14,7 @@ export default function Login() {
     e.preventDefault();
     setError(null);
     try {
-      login({ email, password });
+      login({ username, password });
       navigate("/");
     } catch (err) {
       setError(err.message || "Login failed");
@@ -28,10 +29,10 @@ export default function Login() {
       >
         <h2 className="text-2xl font-semibold mb-4">Login</h2>
         {error && <div className="mb-2 text-red-600">{error}</div>}
-        <label className="block mb-2">Email</label>
+        <label className="block mb-2">Username</label>
         <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           className="w-full p-2 border rounded mb-3"
         />
         <label className="block mb-2">Password</label>
