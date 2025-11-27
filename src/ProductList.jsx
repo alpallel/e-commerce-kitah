@@ -77,7 +77,7 @@ function ProductList() {
       return;
     }
 
-    const url = "http://127.0.0.1:8000/api/products/";
+    const url = "http://127.0.0.1:8000/";
     const csrftoken = getCookie('csrftoken');
 
     // We use FormData to handle file uploads, but it works for plain data too.
